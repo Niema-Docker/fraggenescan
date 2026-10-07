@@ -7,7 +7,7 @@ RUN apk update && \
     wget -qO- "https://github.com/gaberoo/FragGeneScan/archive/refs/tags/v1.3.0.tar.gz" | tar -zx && \
     cd FragGeneScan-* && \
     make clean && \
-    make fgs && \
+    make CFLAGS="-Wno-error=implicit-function-declaration" fgs && \
     mv FragGeneScan run_FragGeneScan.pl /usr/local/bin/ && \
     cd .. && \
     rm -rf FragGeneScan-*
